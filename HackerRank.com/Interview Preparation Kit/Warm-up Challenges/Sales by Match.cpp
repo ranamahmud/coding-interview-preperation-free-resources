@@ -30,6 +30,29 @@ int sockMerchant(int n, vector<int> ar) {
             count+= item.second / 2;
         }
         return count;
+        // time O(n^2)
+}
+
+
+
+int sockMerchant(int n, vector<int> ar) {
+     set<int> socks;
+   int pairs = 0;
+   for(int i =0; i< n; i++){
+       int item = ar[i];
+       if(!socks.count(item))
+       {
+            socks.insert(item);
+       }
+        else{
+            pairs++;
+            socks.erase(item);
+        }
+   }
+   return pairs;
+// source: 
+// lukes712 5 years ago
+// ''' https://www.hackerrank.com/challenges/sock-merchant/forum?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
 }
 
 int main()
